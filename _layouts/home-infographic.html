@@ -7,18 +7,14 @@ layout: page
 
     {% include index/description.html %}
 
-    {% include index/carousel.html title="Sample Items" height=450 %}
+    {% include index/carousel.html title="Digital Projects" height=450 max=15 %}
   
   </div>
   <div class="col-md-4">
 
-    {% include index/time.html %}
+    {% include index/featured-terms.html field="subject" title="What?" btn-color="primary" max=15 %}
 
-    {% include index/featured-terms.html field="subject" title="Top Subjects" btn-color="primary" max=8 %}
-
-    {% include index/featured-terms.html field="creator" title="Creators" btn-color="success" max=8 %}
-
-    {% include index/objects.html %}
+    {% include index/featured-terms.html field="creator" title="Who?" btn-color="success" max=15 %}
 
   </div>
   

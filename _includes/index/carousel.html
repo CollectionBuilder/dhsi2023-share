@@ -58,7 +58,7 @@
     // set up feature function variable 
     var {{ functionName }} = function(cb_items) { 
         // filter to items with format image or youtubeid
-        var carouselItems = cb_items.filter(function(item) { return item.youtubeid || item.format.includes("image"); });
+        var carouselItems = cb_items.filter(function(item) { return item.youtubeid || item.format.includes("image") || item.format.includes("project"); });
         
         /* shuffle items */
         carouselItems.sort(function() { return 0.5 - Math.random() });
