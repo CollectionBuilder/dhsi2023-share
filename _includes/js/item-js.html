@@ -19,7 +19,10 @@ function displayItem(record, prev_id, next_id) {
     }
     var itemImage, itemLink;
 
-    if (format.includes('image')) {
+    if (format.includes('project')) {
+        itemImage= '<a href="' + record.link + '" title="Visit project" target="_blank" rel="noopener"><img class="img-fluid" src="' + objectSrc + '" alt="' + objectTitle + '"></a>';
+        itemLink= '<a href="' + record.link + '" target="_blank" class="m-2 btn btn-dark" target="_blank" rel="noopener">Visit Digital Project</a>';
+    } else if (format.includes('image')) {
         itemImage= '<div class="spotlight gallery-img" data-download="true" data-src="' + objectSrc + '"><img class="img-fluid" src="' + objectSrc + '" alt="' + objectTitle + '"><p><small>Click to view full screen</small></p></div>';
         itemLink= '<a href="' + objectSrc + '" target="_blank" class="m-2 btn btn-dark" title="Object download">Download Image</a>';
     } else if (format.includes('pdf')) {
@@ -82,7 +85,7 @@ function displayItem(record, prev_id, next_id) {
         fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">' + browseLinks + '</dd>';
     }
     {%- else -%}
-    if (record[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + record[{{ f.field | jsonify }}] + '" target="_blank">' + record[{{ f.field | jsonify }}] + '</a>{% else %}' + record[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
+    if (record[{{ f.field | jsonify }}]) { fields += '<dt class="field">{{ f.display_name }}:</dt> <dd class="field-value">{% if f.external_link == "true" %}<a href="' + record[{{ f.field | jsonify }}] + '" target="_blank" rel="noopener">' + record[{{ f.field | jsonify }}] + '</a>{% else %}' + record[{{ f.field | jsonify }}] + '{% endif %}</dd>'; }
     {% endif %}{% endfor %}
     fields += '</dl>';
     document.getElementById("item-metadata").innerHTML = fields;
