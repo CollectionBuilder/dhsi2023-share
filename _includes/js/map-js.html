@@ -100,7 +100,8 @@ function objectPopups(feature, layer) {
     var thumbSrc;
     if (feature.properties.youtubeid) {
         thumbSrc = 'https://img.youtube.com/vi/' +  feature.properties.youtubeid + '/default.jpg';
-    } else if (feature.properties.format && feature.properties.format.includes("image")) {
+        
+    } else if (feature.properties.format && feature.properties.format.includes("project") && feature.properties.filename) {
         if (feature.properties.filename.includes("/")) {
             thumbSrc = feature.properties.filename;
         } else { 
